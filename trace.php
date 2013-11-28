@@ -45,14 +45,17 @@
 	
 	
 ?><html>
-	<style>
-		body {
-			font-family: "Arial, Helvetica, sans-serif";
-			font-size: 9px;
+	<head>
+		<style>
+			body {
+				font-family: "Arial, Helvetica, sans-serif";
+				font-size: 9px;
+				
+			}
 			
-		}
-		
-	</style>
+		</style>
+
+	</head>
 <body>
 	<?
 	
