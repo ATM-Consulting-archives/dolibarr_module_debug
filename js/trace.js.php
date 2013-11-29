@@ -30,6 +30,20 @@ function showDebugTrace() {
 
 	$('#debug-trace').append('<iframe width="100%" frameborder="0" height="100%" src="<?=DOL_URL_ROOT_ALT.'/debugtrace/trace.php' ?>"></iframe>');
 	
+	$('#debug-trace').append('<a href="#" id="debug-open-close">Switch</a>');
+	
+	$('#debug-trace #debug-open-close').click(function() {
+		if( parseInt($('#debug-trace').css('height'))>100 ) $('#debug-trace').css('height','20px');
+		else  $('#debug-trace').css('height','500px');
+	});
+	
+	$('#debug-trace #debug-open-close').css({
+		position:'absolute'
+		,top:0
+		,right:20
+		,backgroundColor:'#fff'
+		,color:'blue'
+	});
 	
 }
 

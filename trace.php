@@ -32,7 +32,7 @@
 		if(strpos($row_test,'failed')!==false || strpos($row_test,'error')!==false) {
 			$color='red';
 		}
-		else if(strpos($row_test,'sql')!==false) {
+		else if(strpos($row_test,'sql')!==false || strpos($row_test,'select')!==false) {
 			$color='green';
 		}
 		else {
