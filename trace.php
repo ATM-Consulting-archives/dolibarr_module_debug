@@ -9,8 +9,12 @@
 		'DOL_DATA_ROOT'=>DOL_DATA_ROOT
 	));
 	
+	$showError = isset($_REQUEST['showError']);
+	
+	$nb_ligne = ($showError) ? 50000:500;
+	
 	$TResult=array();
-	exec('tail --lines 500 '.$file, $TResult);
+	exec('tail --lines '.$nb_ligne.' '.$file, $TResult);
 	
 	/* Sous windows ?
 	 * $f1 = fopen($file,'r');
@@ -26,7 +30,9 @@
 	
 	print_r($TResult);
 	*/
-	foreach($TResult as &$row) {
+	$ToShow = array();
+	
+	foreach($TResult as $row) {
 		
 		$row_test=strtolower($row);
 		if(strpos($row_test,'failed')!==false || strpos($row_test,'error')!==false) {
@@ -39,7 +45,11 @@
 			$color='black';
 		}
 		
-		$row = '<div style="padding-bottom:2px; color:'.$color.'"><span style="color:blue;">'.substr($row,0,19).'</span>'.substr($row,19).'</div>';
+		if(!$showError || $color=='red') {
+			$ToShow[] = '<div style="padding-bottom:2px; color:'.$color.'"><span style="color:blue;">'.substr($row,0,19).'</span>'.substr($row,19).'</div>';	
+		}
+		
+		
 		
 	}
 	
@@ -59,7 +69,7 @@
 <body>
 	<?
 	
-	print implode("<br />", $TResult);
+	print implode("<br />", $ToShow);
 	
 	?>
 	<script type="text/javascript">
