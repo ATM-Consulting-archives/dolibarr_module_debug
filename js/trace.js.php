@@ -28,7 +28,7 @@ function showDebugTrace() {
 		,border:'1px solid #000'
 	});
 
-	$('#debug-trace').append('<iframe id="debug-iframe" width="100%" frameborder="0" height="100%" src="<?=DOL_URL_ROOT_ALT.'/debugtrace/trace.php' ?>"></iframe>');
+	$('#debug-trace').append('<iframe id="debug-iframe" width="100%" frameborder="0" height="100%" src="<?=dol_buildpath('/debugtrace/trace.php',1) ?>"></iframe>');
 	
 	$('#debug-trace').append('<div id="debug-options"><a href="#" id="debug-open-close">Switch</a> | <a href="#" id="debug-refresh">Refresh</a> | <a href="#" id="debug-show-error">Warning/Error</a></div>');
 	
@@ -39,13 +39,13 @@ function showDebugTrace() {
 
 	$('#debug-trace #debug-refresh').click(function() {
 		var iframe = document.getElementById('debug-iframe');
-		iframe.src ='<?=DOL_URL_ROOT_ALT.'/debugtrace/trace.php' ?>';
+		iframe.src ='<?=dol_buildpath('/debugtrace/trace.php',1) ?>';
 
 	});
 	
 	$('#debug-trace #debug-show-error').click(function() {
 		var iframe = document.getElementById('debug-iframe');
-		iframe.src = '<?=DOL_URL_ROOT_ALT.'/debugtrace/trace.php?showError=1' ?>';
+		iframe.src = '<?=dol_buildpath('/debugtrace/trace.php?showError=1',1) ?>';
 
 	});
 	
