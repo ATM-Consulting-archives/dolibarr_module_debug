@@ -67,7 +67,7 @@
 
 	</head>
 <body>
-	<?
+	<?php
 	
 	print implode("<br />", $ToShow);
 	
@@ -76,7 +76,7 @@
 		window.scrollTo(0,document.body.scrollHeight);
 	</script>
 </body>
-</html><?	
+</html><?php	
 	
 	
 	
